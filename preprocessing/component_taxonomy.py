@@ -1,0 +1,33 @@
+from pathlib import Path
+import pandas as pd
+
+ROOT_DIR = Path(__file__).resolve().parent.parent
+OUTPUT_DIR = ROOT_DIR / "output"
+OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+
+taxonomy = [
+    ("OTP", "Mã OTP, mã xác thực, mã xác minh, mã xác nhận."),
+    ("YEAR", "Năm hoặc thông tin năm trong ngữ cảnh thời gian."),
+    ("DOCUMENT_NUMBER", "Số giấy tờ, hồ sơ, văn bản hoặc hợp đồng."),
+    ("SHORTCODE", "Đầu số dịch vụ dùng để gửi hoặc nhận tin nhắn."),
+    ("CONTACT", "Số điện thoại, hotline hoặc thông tin liên hệ."),
+    ("SERVICE_QUOTA", "Số lượng dung lượng, phút gọi, SMS hoặc hạn mức dịch vụ."),
+    ("RECIPIENT_INFO", "Thông tin số của người nhận hoặc người thụ hưởng."),
+    ("ACCOUNT_NUMBER", "Số tài khoản ngân hàng hoặc tài khoản thanh toán."),
+    ("CARD_REFERENCE", "Số thẻ hoặc thông tin tham chiếu thẻ."),
+    ("TRANSACTION_ID", "Mã giao dịch hoặc mã tham chiếu giao dịch."),
+    ("ORDER_ID", "Mã đơn hàng hoặc mã đặt hàng."),
+    ("SUBSCRIBER_ID", "Mã thuê bao hoặc mã khách hàng dịch vụ."),
+    ("DEVICE_ID", "Mã hoặc tên định danh thiết bị."),
+    ("URL_COMPONENT", "Số nằm trong thành phần URL, tên miền hoặc đường dẫn."),
+    ("NUMBER_UNKNOWN", "Chưa đủ ngữ cảnh để xác định loại số.")
+]
+
+df = pd.DataFrame(taxonomy, columns=["component", "description"])
+
+output_path = OUTPUT_DIR / "component_taxonomy.csv"
+df.to_csv(output_path, index=False, encoding="utf-8-sig")
+
+print(f"Đã tạo taxonomy: {output_path}")
+print(f"Tổng số component: {len(df)}")
+print(df.to_string(index=False))

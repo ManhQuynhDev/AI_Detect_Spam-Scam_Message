@@ -1,0 +1,17 @@
+﻿label,component,message_count,count_with_component,percentage
+0,url,2193,1005,45.83
+0,otp,2193,145,6.61
+0,money,2193,1521,69.36
+0,time,2193,686,31.28
+0,date,2193,552,25.17
+0,phone,2193,0,0.0
+0,brand,2193,975,44.46
+0,action,2193,428,19.52
+1,url,798,321,40.23
+1,otp,798,0,0.0
+1,money,798,289,36.22
+1,time,798,62,7.77
+1,date,798,8,1.0
+1,phone,798,0,0.0
+1,brand,798,141,17.67
+1,action,798,170,21.3
